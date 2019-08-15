@@ -29,18 +29,15 @@ public class Week4WorkerTest {
 	@Test
 	public void test() {
 		char first = 'A', last = 'D';
-		//for (int t = 0; t < 20; t++) {
+		for (int t = 0; t < 20; t++) {
 			List<Pair<String, String>> relations = new ArrayList<>();
-		/*	for (char i = first; i <= last; i++) {
+			for (char i = first; i <= last; i++) {
 				for (char j = first; j <= last; j++) {
 					if (i < j && Math.random() < 0.5) {
 						relations.add(Pair.of(String.valueOf(i), String.valueOf(j)));
 					}
 				}
-			}*/
-		relations.add(Pair.of("A","B"));
-		relations.add(Pair.of("A","C"));
-		relations.add(Pair.of("B","D"));
+			}
 			System.out.println(relations.stream().map(p -> p.getLeft() + "->" + p.getRight()).collect(Collectors.joining(",")));
 			List<Collection<String>> sorted = worker.sort(relations);
 			Map<String, Integer> order = new HashMap<>();
@@ -54,6 +51,6 @@ public class Week4WorkerTest {
 			}
 			System.out.println(sorted.stream().map(Collection::toString).collect(Collectors.joining(" -> ")));
 			System.out.println(new String(new char[100]).replace('\0', '-'));
-		//}
+		}
 	}
 }
